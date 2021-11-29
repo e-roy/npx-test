@@ -1,8 +1,7 @@
 #!/usr/bin/env node
-let args = process.argv;
-
 const path = require("path");
 const fs = require("fs");
+const args = process.argv;
 
 const root = path.resolve(args[2]);
 
