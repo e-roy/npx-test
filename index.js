@@ -9,5 +9,5 @@ if (!fs.existsSync(root)) {
   fs.mkdirSync(root);
 }
 
-import got from "got";
-import tar from "tar";
+// import got from "got";
+// import tar from "tar";
