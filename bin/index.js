@@ -29,7 +29,7 @@ fs.writeFileSync(
   JSON.stringify(packageJson, null, 2) + os.EOL
 );
 
-const content = path.join(process.cwd(), "templates");
+const content = path.join(process.cwd(), "templates", "default");
 // console.log(content);
 
 function copyFileSync(source, target) {
