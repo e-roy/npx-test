@@ -11,7 +11,9 @@
     "type": "git",
     "url": "git+https://github.com/e-roy/npx-test.git"
   },
-  "bin": "bin/index.js",
+  "bin": {
+    "create": "bin/index.js"
+  },
   "author": "",
   "license": "ISC",
   "bugs": {
