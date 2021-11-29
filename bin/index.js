@@ -3,8 +3,7 @@ import { resolve } from "path";
 import { existsSync, mkdirSync } from "fs";
 const args = process.argv;
 
-// const root = resolve(args[2]);
-const root = resolve("somthing");
+const root = resolve(args[2]);
 
 if (!existsSync(root)) {
   mkdirSync(root);
