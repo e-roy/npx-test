@@ -1,9 +1,11 @@
 #!/usr/bin/env node
-// import { resolve } from "path";
 import path from "path";
 import fs from "fs";
 import os from "os";
-import cpy from "cpy";
+// import cpy from "cpy";
+// import child_process from "child_process";
+// import fse from "fs-extra";
+
 const args = process.argv;
 
 const root = path.resolve(args[2]);
@@ -27,33 +29,113 @@ fs.writeFileSync(
   JSON.stringify(packageJson, null, 2) + os.EOL
 );
 
+const content = path.join(process.cwd(), "templates");
+// console.log(content);
+
+function copyFileSync(source, target) {
+  var targetFile = target;
+
+  // If target is a directory, a new file with the same name will be created
+  if (fs.existsSync(target)) {
+    if (fs.lstatSync(target).isDirectory()) {
+      targetFile = path.join(target, path.basename(source));
+    }
+  }
+
+  fs.writeFileSync(targetFile, fs.readFileSync(source));
+}
+
+function copyFolderRecursiveSync(source, target) {
+  var files = [];
+
+  // Check if folder needs to be created or integrated
+  var targetFolder = path.join(target, path.basename(source));
+  if (!fs.existsSync(targetFolder)) {
+    fs.mkdirSync(targetFolder);
+  }
+
+  // Copy
+  if (fs.lstatSync(source).isDirectory()) {
+    files = fs.readdirSync(source);
+    files.forEach(function (file) {
+      var curSource = path.join(source, file);
+      if (fs.lstatSync(curSource).isDirectory()) {
+        copyFolderRecursiveSync(curSource, targetFolder);
+      } else {
+        copyFileSync(curSource, targetFolder);
+      }
+    });
+  }
+}
+
+copyFolderRecursiveSync(content, root);
+
+// async function copyDir(src, dest) {
+//   await fs.mkdir(dest, { recursive: true });
+//   let entries = await fs.readdir(src, { withFileTypes: true });
+
+//   for (let entry of entries) {
+//     let srcPath = path.join(src, entry.name);
+//     let destPath = path.join(dest, entry.name);
+
+//     entry.isDirectory()
+//       ? await copyDir(srcPath, destPath)
+//       : await fs.copyFile(srcPath, destPath);
+//   }
+// }
+
+// copyDir(content, root);
+
+// fs.copyFile(src, dest, mode, callback);
+// fs.copyFileSync(content, root);
+
+// try {
+//   fs.writeFileSync(
+//     path.join("**", root, {
+//       parents: true,
+//       cwd: path.join(process.cwd(), "templates"),
+//     })
+//   );
+//   //file written successfully
+// } catch (err) {
+//   console.error(err);
+// }
+
+// const child_process = require("child_process");
+
+// child_process.spawn("**", root, {
+//   cwd: path.join(process.cwd(), "templates"),
+//   detached: false,
+//   stdio: "inherit",
+// });
+
 // const template = typescript ? "typescript" : "default";
 
-const template = "default";
+// const template = "default";
 
 // console.log(__dirname);
-console.log(process.cwd());
+// console.log(process.cwd());
 
-await cpy("**", root, {
-  parents: true,
-  cwd: path.join(process.cwd(), "templates", template),
-  rename: (name) => {
-    switch (name) {
-      case "gitignore":
-      case "eslintrc.json": {
-        return ".".concat(name);
-      }
-      // README.md is ignored by webpack-asset-relocator-loader used by ncc:
-      // https://github.com/vercel/webpack-asset-relocator-loader/blob/e9308683d47ff507253e37c9bcbb99474603192b/src/asset-relocator.js#L227
-      case "README-template.md": {
-        return "README.md";
-      }
-      default: {
-        return name;
-      }
-    }
-  },
-});
+// await cpy("**", root, {
+//   parents: true,
+//   cwd: path.join(process.cwd(), "templates"),
+//   // rename: (name) => {
+//   //   switch (name) {
+//   //     case "gitignore":
+//   //     case "eslintrc.json": {
+//   //       return ".".concat(name);
+//   //     }
+//   //     // README.md is ignored by webpack-asset-relocator-loader used by ncc:
+//   //     // https://github.com/vercel/webpack-asset-relocator-loader/blob/e9308683d47ff507253e37c9bcbb99474603192b/src/asset-relocator.js#L227
+//   //     case "README-template.md": {
+//   //       return "README.md";
+//   //     }
+//   //     default: {
+//   //       return name;
+//   //     }
+//   //   }
+//   // },
+// });
 
 // const templatePath = `${__dirname}/template`;
 // console.log(templatePath);
