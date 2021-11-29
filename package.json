@@ -12,7 +12,7 @@
     "url": "git+https://github.com/e-roy/npx-test.git"
   },
   "bin": {
-    "create": "bin/index.js"
+    "npx-test": "bin/index.js"
   },
   "author": "",
   "license": "ISC",
