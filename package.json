@@ -22,7 +22,8 @@
   "homepage": "https://github.com/e-roy/npx-test#readme",
   "devDependencies": {
     "got": "10.7.0",
-    "tar": "4.4.10"
+    "tar": "4.4.10",
+    "download-git-repo": "3.0.2"
   },
   "engines": {
     "node": ">=12.22.0"
