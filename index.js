@@ -3,8 +3,6 @@ import path from "path";
 import fs from "fs";
 import os from "os";
 import cpy from "cpy";
-// import child_process from "child_process";
-// import fse from "fs-extra";
 
 const args = process.argv;
 
