@@ -9,7 +9,7 @@ const args = process.argv;
 const root = path.resolve(args[2]);
 
 const packageJson = {
-  name: "app name",
+  name: "app-name",
   private: true,
   scripts: {
     dev: "next dev",
@@ -32,22 +32,22 @@ const buildPackage = async () => {
   await cpy("**", root, {
     parents: true,
     cwd: path.join(process.cwd(), "templates"),
-    // rename: (name) => {
-    //   switch (name) {
-    //     case "gitignore":
-    //     case "eslintrc.json": {
-    //       return ".".concat(name);
-    //     }
-    //     // README.md is ignored by webpack-asset-relocator-loader used by ncc:
-    //     // https://github.com/vercel/webpack-asset-relocator-loader/blob/e9308683d47ff507253e37c9bcbb99474603192b/src/asset-relocator.js#L227
-    //     case "README-template.md": {
-    //       return "README.md";
-    //     }
-    //     default: {
-    //       return name;
-    //     }
-    //   }
-    // },
+    rename: (name) => {
+      switch (name) {
+        case "gitignore":
+        case "eslintrc.json": {
+          return ".".concat(name);
+        }
+        // README.md is ignored by webpack-asset-relocator-loader used by ncc:
+        // https://github.com/vercel/webpack-asset-relocator-loader/blob/e9308683d47ff507253e37c9bcbb99474603192b/src/asset-relocator.js#L227
+        case "README-template.md": {
+          return "README.md";
+        }
+        default: {
+          return name;
+        }
+      }
+    },
   });
 };
 
