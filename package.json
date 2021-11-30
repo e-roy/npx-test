@@ -1,6 +1,6 @@
 {
   "name": "npx-test",
-  "version": "1.0.27",
+  "version": "1.0.28",
   "description": "testing npx",
   "scripts": {
     "dev": "ncc build ./index.js -w -o dist/",
