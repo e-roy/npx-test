@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 /* eslint-disable import/no-extraneous-dependencies */
+import path from "path";
 import fs from "fs";
-// import path from "path";
-// import os from "os";
+import os from "os";
 // import cpy from "cpy";
 
 // const args = process.argv;
@@ -10,26 +10,26 @@ import fs from "fs";
 // const root = path.resolve(args[2]);
 const root = "something";
 
-// const packageJson = {
-//   name: "app-name",
-//   private: true,
-//   scripts: {
-//     dev: "next dev",
-//     build: "next build",
-//     start: "next start",
-//     lint: "next lint",
-//   },
-// };
+const packageJson = {
+  name: "app-name",
+  private: true,
+  scripts: {
+    dev: "next dev",
+    build: "next build",
+    start: "next start",
+    lint: "next lint",
+  },
+};
 
 const buildPackage = () => {
   if (!fs.existsSync(root)) {
     fs.mkdirSync(root);
   }
 
-  // fs.writeFileSync(
-  //   path.join(root, "package.json"),
-  //   JSON.stringify(packageJson, null, 2) + os.EOL
-  // );
+  fs.writeFileSync(
+    path.join(root, "package.json"),
+    JSON.stringify(packageJson, null, 2) + os.EOL
+  );
 
   // copyFiles();
 };
