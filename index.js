@@ -29,7 +29,7 @@ const buildPackage = () => {
     JSON.stringify(packageJson, null, 2) + os.EOL
   );
 
-  copyFiles();
+  // copyFiles();
 };
 
 const copyFiles = async () => {
