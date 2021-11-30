@@ -6,7 +6,8 @@ import cpy from "cpy";
 
 const args = process.argv;
 
-const root = path.resolve(args[2]);
+// const root = path.resolve(args[2]);
+const root = "something";
 
 const packageJson = {
   name: "app-name",
