@@ -31,7 +31,7 @@ const buildPackage = async () => {
 
   await cpy("**", root, {
     parents: true,
-    cwd: path.join(process.cwd(), "templates"),
+    cwd: path.join(process.cwd(), "templates", "default"),
     rename: (name) => {
       switch (name) {
         case "gitignore":
