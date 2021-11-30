@@ -1,11 +1,11 @@
 {
   "name": "npx-test",
-  "version": "1.0.29",
+  "version": "1.0.30",
   "description": "testing npx",
   "scripts": {
-    "dev": "ncc build ./index.js -w -o dist/",
-    "release": "ncc build ./index.js -o ./dist/ --minify --no-cache --no-source-map-register",
-    "release2": "ncc build ./index.js -o ./dist/ --minify",
+    "dev": "ncc build ./index.ts -w -o dist/",
+    "release": "ncc build ./index.ts -o ./dist/ --minify --no-cache --no-source-map-register",
+    "release2": "ncc build ./index.ts -o ./dist/ --minify",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
