@@ -1,6 +1,7 @@
 #!/usr/bin/env node
-// import path from "path";
+/* eslint-disable import/no-extraneous-dependencies */
 import fs from "fs";
+// import path from "path";
 // import os from "os";
 // import cpy from "cpy";
 
