@@ -7,9 +7,10 @@ module.exports = (() => {
       var n = _.n(t);
       const i = require("fs");
       var a = _.n(i);
-      const u = require("os");
-      var o = _.n(u);
-      const c = "something";
+      const o = require("os");
+      var u = _.n(o);
+      const c = process.argv;
+      const s = n().resolve(c[2]);
       const p = {
         name: "app-name",
         private: true,
@@ -20,17 +21,17 @@ module.exports = (() => {
           lint: "next lint",
         },
       };
-      const s = () => {
-        if (!a().existsSync(c)) {
-          a().mkdirSync(c);
+      const l = () => {
+        if (!a().existsSync(s)) {
+          a().mkdirSync(s);
         }
         a().writeFileSync(
-          n().join(c, "package.json"),
-          JSON.stringify(p, null, 2) + o().EOL
+          n().join(s, "package.json"),
+          JSON.stringify(p, null, 2) + u().EOL
         );
       };
       function run() {
-        s();
+        l();
       }
       run();
     },

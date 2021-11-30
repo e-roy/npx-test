@@ -5,10 +5,9 @@ import fs from "fs";
 import os from "os";
 // import cpy from "cpy";
 
-// const args = process.argv;
+const args = process.argv;
 
-// const root = path.resolve(args[2]);
-const root = "something";
+const root = path.resolve(args[2]);
 
 const packageJson = {
   name: "app-name",
