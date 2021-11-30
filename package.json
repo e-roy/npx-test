@@ -1,6 +1,6 @@
 {
   "name": "npx-test",
-  "version": "1.0.32",
+  "version": "1.0.33",
   "description": "testing npx",
   "scripts": {
     "dev": "ncc build ./index.ts -w -o dist/",
@@ -26,6 +26,7 @@
   "homepage": "https://github.com/e-roy/npx-test#readme",
   "devDependencies": {
     "@types/async-retry": "1.4.2",
+    "@types/cross-spawn": "^6.0.2",
     "@types/node": "^12.6.8",
     "@types/prompts": "2.0.1",
     "@types/rimraf": "3.0.0",
