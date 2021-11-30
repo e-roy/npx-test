@@ -1,8 +1,7 @@
 {
   "name": "npx-test",
-  "version": "1.0.24",
+  "version": "1.0.25",
   "description": "testing npx",
-  "type": "module",
   "scripts": {
     "dev": "ncc build ./index.js -w -o dist/",
     "release": "ncc build ./index.js -o ./dist/ --minify --no-cache --no-source-map-register",
