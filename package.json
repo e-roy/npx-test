@@ -1,6 +1,6 @@
 {
   "name": "npx-test",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "testing npx",
   "type": "module",
   "scripts": {

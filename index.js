@@ -19,7 +19,7 @@ const packageJson = {
   },
 };
 
-const buildPackage = async () => {
+const buildPackage = () => {
   if (!fs.existsSync(root)) {
     fs.mkdirSync(root);
   }
@@ -29,6 +29,10 @@ const buildPackage = async () => {
     JSON.stringify(packageJson, null, 2) + os.EOL
   );
 
+  copyFiles();
+};
+
+const copyFiles = async () => {
   await cpy("**", root, {
     parents: true,
     cwd: path.join(process.cwd(), "templates", "default"),
@@ -52,7 +56,7 @@ const buildPackage = async () => {
 };
 
 function run() {
-  console.log("running");
+  // console.log("running");
   buildPackage();
 }
 
