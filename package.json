@@ -1,6 +1,6 @@
 {
   "name": "npx-create-test",
-  "version": "1.0.43",
+  "version": "1.0.44",
   "description": "testing npx",
   "author": "",
   "license": "MIT",
@@ -10,7 +10,7 @@
     "directory": "./"
   },
   "bin": {
-    "create-next-app": "./dist/index.js"
+    "npx-create-test": "./dist/index.js"
   },
   "files": [
     "dist"
