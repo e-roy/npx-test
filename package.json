@@ -1,6 +1,6 @@
 {
   "name": "npx-create-test",
-  "version": "1.0.37",
+  "version": "1.0.38",
   "description": "testing npx",
   "scripts": {
     "dev": "ncc build ./index.ts -w -o dist/",
@@ -10,7 +10,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/e-roy/npx-test"
+    "url": "https://github.com/e-roy/npx-test",
+    "directory": "./"
   },
   "files": [
     "dist"
