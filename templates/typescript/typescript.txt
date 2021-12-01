@@ -1,1 +1,1 @@
-somthoienndsa here 
+This file is a placeholder for where the typescript app would go
